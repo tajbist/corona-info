@@ -18,7 +18,14 @@ import Chip from "@material-ui/core/Chip";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "@material-ui/core/Button";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import TypoGraphy from "@material-ui/core/Typography";
 
+const style = {
+  flexGrow: 3
+};
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -51,15 +58,22 @@ class Header extends Component {
     const { total_case } = this.state;
     return (
       <div>
-        <Alert variant="danger">
-          <Spinner animation="border" variant="primary" />
-          <Spinner animation="border" variant="secondary" />
-          <Spinner animation="border" variant="danger" />
-          <Spinner animation="border" variant="warning" />
-          <Spinner animation="border" variant="info" />
-          <Alert.Heading>Coronavirus info! </Alert.Heading>
-          <p>You have to make safe yourself!</p>
-        </Alert>
+        <div>
+          <AppBar color="primary" position="static">
+            <Toolbar>
+              <TypoGraphy variant="title" color="inherit">
+                <Spinner animation="border" variant="primary" />
+              </TypoGraphy>
+
+              <TypoGraphy variant="h6" style={style} color="inherit">
+                <Button color="secondary">
+                  <h2>Coronavirus info!</h2>
+                </Button>
+              </TypoGraphy>
+            </Toolbar>
+          </AppBar>
+        </div>
+
         <Alert variant="info">
           <Container>
             <h2 className="danger">Coronavirus Summary:</h2>
